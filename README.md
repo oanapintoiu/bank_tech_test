@@ -1,10 +1,12 @@
-# Bank Tech Test README Summary
+# Bank_Tech_Test README
+
+## Table of Contents
 
 1. Specifications
 2. Observations
 3. User Story
 4. Methodology Implementaion
-5. Diagram  
+5. Diagram
 6. Tickets
 7. Test Covarage
 8. Screenshots
