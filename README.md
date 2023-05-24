@@ -49,7 +49,27 @@ date || credit || debit || balance
 
 ## 2. Observations
 
+* The date in the spcification is for example purposes only, therefore when the program is run it will display the current date.
+
+* The program will follow the STATEMENT specifications and:
+        * use .00 or 2 decimals after the main number;
+        * format the date as per speicfications DD/MM/YYYY;
+        * use 2 pipe characters || to seperate each column;
+        * if either the debit or credit amount is missing, this will be replaced by 2 pipe characters ||;
+        * statement will display in reverse chronological order, starting with the latest transaction.
+
+* The program will take into account if any withdrawls will cause the balance to become negative and display an error of 'Insufficient funds funds'.
+
 ## 3. User Story
+
+```
+1. As a user, I would like to deposit money into my account.
+2. As a user, I would like to withdraw money from my account.
+3. As a user, I would like to request the printing of my account statement that shows me the date, amount and balance.
+4. As a user I would like my statement to have a header. 
+5. As a user, I would like to see my latest transaction first when printing my statement.
+
+```
 
 ## 4. Methodology Implementation
 
@@ -114,6 +134,16 @@ $ npm init -y
 
 # Add the jest package to run tests in the tests directory:
 $ npm add jest
+
+# Add instanbul to see test coverage as a 'devDependency' for this project:
+$ npm install istanbul --save-dev
+
+# Insert the following line inot the scripts section of your package.json:
+$ "coverage:" instanbul cover ./name-of-direcotry-or-file
+
+# Then run this command to create a folder where all the geenrated reports will be held:
+$ npm run coverage
+
 ```
 
 <ins> Step 4: Running tests:
@@ -121,6 +151,9 @@ $ npm add jest
 ```
 # Please check that all tests are running in the test directory before running the program in REPL: 
 $ jest
+
+# To see test coverage then run: 
+$ test
 ```
 
 <ins> Step 5: Running the program/app in REPL:
@@ -145,9 +178,51 @@ $
 $
 ```
 
-## 10. Self-assement criteria
+## 10. Self-assement 
 
-### Self-assessment
+### Questions and Answers
+
+Normal Cnstraints: 
+
+```
+1. Did you start a feature test?
+Yes/No/I don't know
+
+2. Do the tests pass?
+Yes/No/I don't know
+
+3. Is the test coverage high? (>95%)
+Yes/No/I don't know
+
+4. Do the unit tests mock the dependencies of the object they are testing?
+Yes/No/I don't know
+```
+
+Additional Constraints:
+```
+5. Where possible, do you always test for the behaviour rather than the state? 
+Yes/No/I don't know
+
+6. Do the test descriptions read clearly?
+Yes/No/I don't know
+
+7. Do you make appropriate use of the testing framework's method to keep your test code clean? 
+Yes/No/I don't know
+```
+
+Strict Constraints: 
+```
+8. Does your project commit history clearly show evidence of a thorough TDD process?
+Yes/No/I don't know
+
+9. Have you mocked the dependecy Time?
+Yes/No/I don't know
+
+10. Personal perception of the quality of testing (scale of 1-4):
+1, 2, 3, 4
+```
+
+
 
 Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: <https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit>
 
