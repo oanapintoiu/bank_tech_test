@@ -1,4 +1,4 @@
-# Bank Tech Test README Summary 
+# Bank Tech Test README Summary
 
 1. Specifications
 2. Observations
@@ -47,27 +47,19 @@ date || credit || debit || balance
 10/01/2023 || 1000.00 || || 1000.00
 ```
 
-
 ## 2. Observations
-
 
 ## 3. User Story
 
-
 ## 4. Methodology Implementation
-
 
 ## 5. Diagram
 
-
 ## 6. Tickets
-
 
 ## 7. Test Covarage
 
-
 ## 8. Screenshots
-
 
 ## 9. Instructions
 
@@ -75,11 +67,11 @@ date || credit || debit || balance
 
 #### Introduction
 
-This program uses Javascript, a dynamic computer programming language and one of the core technologies for developing web page content, alongside HTML and CSS. 
+This program uses Javascript, a dynamic computer programming language and one of the core technologies for developing web page content, alongside HTML and CSS.
 
 For this exercise to be run, a program called Node.js will have to be installed. Node.js is a JavaScript runtime, i.e. it reads JavaScript code and executes it as a programs
 
-<ins> Step 1: Clone this repo to your machine: 
+<ins> Step 1: Clone this repo to your machine:
 
 ```
 # Create a folder/directory where you would like to store the cloned repo: 
@@ -95,11 +87,11 @@ $ git clone link-to-git-repository
 
 <ins> Step 2: Install nvm
 
-Nvm stands for Node Version Manager, a tool that allows you to install and swtich in between different versions of Node. 
+Nvm stands for Node Version Manager, a tool that allows you to install and swtich in between different versions of Node.
+NVM is distributed using github - you can find installation instructions for the latest version [here](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```
-# NVM is distributed using github - you can find installation instructions for the latest version [here](https://github.com/nvm-sh/nvm#installing-and-updating). You'll need to run a command that looks like this:
-
+# You'll need to run a command that looks like this:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 # Once that step is complete, reload your ~/.zshrc file:
@@ -109,12 +101,10 @@ source ~/.zshrc
 $ nvm install node
 ```
 
-
 <ins> Step 3: Setting up the project
 
 ```
 # When NVM is installed, once can automatically install and use the latest, stable version. You can set up the enviroment by running: 
-
 $ nvm use node
 
 #The next step would be to set up the folder structure, however this is not required as this has been already done. 
@@ -126,15 +116,14 @@ $ npm init -y
 $ npm add jest
 ```
 
-<ins> Step 4: Running tests: 
+<ins> Step 4: Running tests:
 
 ```
 # Please check that all tests are running in the test directory before running the program in REPL: 
-
 $ jest
 ```
 
-<ins> Step 5: Running the program/app in REPL: 
+<ins> Step 5: Running the program/app in REPL:
 
 ```
 # Run node to open the node REPL:
@@ -156,15 +145,11 @@ $
 $
 ```
 
-
 ## 10. Self-assement criteria
 
 ### Self-assessment
 
-Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit
-
-
-
+Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: <https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit>
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
