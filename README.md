@@ -52,11 +52,11 @@ date || credit || debit || balance
 * The date in the spcification is for example purposes only, therefore when the program is run it will display the current date.
 
 * The program will follow the STATEMENT specifications and:
-        * use .00 or 2 decimals after the main number;
-        * format the date as per speicfications DD/MM/YYYY;
-        * use 2 pipe characters || to seperate each column;
-        * if either the debit or credit amount is missing, this will be replaced by 2 pipe characters ||;
-        * statement will display in reverse chronological order, starting with the latest transaction.
+     * use .00 or 2 decimals after the main number;
+     * format the date as per speicfications DD/MM/YYYY;
+     * use 2 pipe characters || to seperate each column;
+     * if either the debit or credit amount is missing, this will be replaced by 2 pipe characters ||;
+     * statement will display in reverse chronological order, starting with the latest transaction.
 
 * The program will take into account if any withdrawls will cause the balance to become negative and display an error of 'Insufficient funds funds'.
 
@@ -68,7 +68,6 @@ date || credit || debit || balance
 3. As a user, I would like to request the printing of my account statement that shows me the date, amount and balance.
 4. As a user I would like my statement to have a header. 
 5. As a user, I would like to see my latest transaction first when printing my statement.
-
 ```
 
 ## 4. Methodology Implementation
