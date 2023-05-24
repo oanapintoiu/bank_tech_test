@@ -58,7 +58,7 @@ date || credit || debit || balance
      * if either the debit or credit amount is missing, this will be replaced by 2 pipe characters ||;
      * statement will display in reverse chronological order, starting with the latest transaction.
 
-* The program will take into account if any withdrawls will cause the balance to become negative and display an error of 'Insufficient funds funds'.
+* The program will take into account if any withdrawls will cause the balance to become negative and display an error of 'Insufficient funds'.
 
 ## 3. User Story
 
@@ -70,9 +70,40 @@ date || credit || debit || balance
 5. As a user, I would like to see my latest transaction first when printing my statement.
 ```
 
-## 4. Methodology Implementation
+## 4. Diagram
 
-## 5. Diagram
+<img src="bank_test_diagram.png"
+     alt="Bank Test Diagram">
+
+## 5. Methodology Implementation
+
+### SRP vs SOC
+
+Research was conducted on both SOC (separation of concerns principles) and SRP (single responsability principles) to determine the most effcicient, stable and easy to maintain solution. Due to the requirements and low complexity of the program, it was determined that both principles would overlap in terms of code structure and organization and would not look significantly different - if at all. Both principles focus on modularity, maintainability and testability by separating concerns.
+
+For more information on SOC, click [here](https://help.sap.com/doc/abapdocu_753_index_htm/7.53/en-US/abenseperation_concerns_guidl.htm#:~:text=Separation%20of%20concerns%20is%20a,and%20arrangement%20in%20software%20layers.).
+
+For more information on SRC, click [here](https://en.wikipedia.org/wiki/Single-responsibility_principle).
+
+For perspectives on the differences between SRP and SOC, you can view this article [here](https://www.petrosefthymiou.com/post/the-single-concern-vs-the-single-responsibility-principles), a second article [here](https://www.cloudnativemaster.com/post/single-responsibility-and-separation-of-concerns) and another [here](https://beyond-agility.com/what-is-the-difference-between-soc-and-srp/). 
+
+
+### Controller functionality:
+
+1. __BankAccount Controller__: handles the overall functionality of the program acting as the main interface, handling operations such as withdrawals, deposits and printing statements; delegates transaction related operations to the transaction controller and statement printing to the statement controller.
+
+2. __Transaction Controller__: manages, records and stores all transactions associated with the bank account class/controller and provides the user with additional information such as the transaction date, credit and debit amount, and resulting balance.
+
+3. __Statement Controller__: generates and prints the account statement in the desired format based on the stored transactions found in the transaction controller.
+
+### Testing:
+
+1. __BankAccount Controller Tests__: tbc
+
+2. __Transaction Controller Tests__: tbc
+
+3. __Statement Controller Tests__: tbc
+
 
 ## 6. Tickets
 
