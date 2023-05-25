@@ -101,6 +101,8 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 
 1. **BankAccount Controller Tests**: 
 
+* key notes: declared a variable `account` using `let` that will represent the creation of a new instance of the `BankAccount class` at the start of each test. 
+
 * deposits (passed):
   * add 1000, expect balance to be 1000;
   * add 1000, add 1000 and expect balance to be 2000;
@@ -110,12 +112,22 @@ For perspectives on the differences between SRP and SOC, you can view this artic
   * add 2000, draw 1000, draw 500 and expect balance to be 500;
   * should return an error message if withdrawal amount exceeds balance; add 500, draw 1000, exptect to receive "Insufficient funds.'. To achieve this test, a mock environment was created by using jest.spyOn to create a 'spy' on the console.log method. By using .toHaveBeenCalledWith() the test checks the statement in the console log was called with the correct error message. For more information, check the [Jest documentation here](https://jestjs.io/docs/jest-object#jestspyonobject-methodname-accesstype).
 
-* transactions:
-  * 
-  * 
 
+2. **Transaction Controller Tests**: 
 
-2. **Transaction Controller Tests**: tbc
+* key notes:
+  * created a seperate test file for this controller for ease of use;
+  * used the previous test (for bankAccount.js) as a template and built up on it;
+  * declared 3 variables: `account` - new instance of `BankAccount class`, `newTransaction` - new instantace of `Transaction class` and lastly `transactionsArray` which creates a new variable that can hold a referece to the actual transactions array found in the controller.  
+
+* tests will be looking at:
+  * adding a new transaction; (passed)
+  * checking the correct credit amount in a deposit situation; (passed)
+  * checking the correct debit amount in a deposit situation;
+  * checking the toccrect balance in a deposit situations;
+  * checking the correct credit amount in a withdrawal situation; 
+  * checking the correct debit amount in a withdrawal situation;
+  * checking the toccrect balance in a withdrawal situations;
 
 3. **Statement Controller Tests**: tbc
 
@@ -126,7 +138,7 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 3. Develop tests and then code for deposit feature ==Done==
 4. Develop tests and then code for withdrawal feature ==Done==
 5. Work on developing tests for adding a transaction. Create an array 'this.transactions' in the transaction.js controller.
-6. Define a addTransaction method in the transaction.js controllet and test individually that it adds a transaction with the following data: credit, debit, balance, new Date().
+6. Define a addTransaction method in the transaction.js controllet and test individually, one at a time, that it adds a transaction with the following data: credit, debit, balance, new Date().
 7.
 8.
 9.
