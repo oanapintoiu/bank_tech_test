@@ -107,13 +107,13 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 
 ## 6. Tickets
 
-1. Develop Folder Structure -> <span style="color:green"> Done </span>
+1. Develop Folder Structure. -> <span style="color:green">Done</span>
 
-2. Install nvm, istanbul, setup jest and istanbul.  <span style="color:green"> Done </span>
+2. Install nvm, istanbul, setup jest and istanbul. -> <span style="color:green">Done</span>
 
-3. Develop tests for deposit.  <span style="color:orange"> In progress </span>
+3. Develop tests for deposit. -> <span style="color:amber">In progress</span>
 
-4. Develop tests for withdrawal.  <span style="color:red"> Not started </span>
+4. Develop tests for withdrawal. -> <span style="color:red">Not started</span>
 
 
 ## 7. Test Covarage
