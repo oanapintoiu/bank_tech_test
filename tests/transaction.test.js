@@ -15,10 +15,11 @@ describe("transactions feature within the Bank Account", () => {
   describe("transaction", () => {
     it("should add a transaction with the correct credit amount", () => {
       account.deposit(1000);
-      newTransaction.addTransaction(1000, 0); // calls the add transaction method with the correct credit amount
+      newTransaction.addTransaction(1000, 0, 1000); // calls the add transaction method with the correct credit amount
       expect(transactionArray[0].credit).toBe(1000);
       expect(transactionArray.length).toBe(1);
       expect(transactionArray[0].debit).toBe(0);
+      expect(transactionArray[0].balance).toBe(1000);
     });
   });
 });
