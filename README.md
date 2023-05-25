@@ -110,7 +110,9 @@ For perspectives on the differences between SRP and SOC, you can view this artic
   * add 2000, draw 1000, draw 500 and expect balance to be 500;
   * should return an error message if withdrawal amount exceeds balance; add 500, draw 1000, exptect to receive "Insufficient funds.'. To achieve this test, a mock environment was created by using jest.spyOn to create a 'spy' on the console.log method. By using .toHaveBeenCalledWith() the test checks the statement in the console log was called with the correct error message. For more information, check the [Jest documentation here](https://jestjs.io/docs/jest-object#jestspyonobject-methodname-accesstype).
 
-
+* transactions:
+  * 
+  * 
 
 
 2. **Transaction Controller Tests**: tbc
@@ -121,10 +123,10 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 
 1. Develop Folder Structure ==Done==
 2. Install nvm, istanbul, setup jest ==Done==
-3. Develop tests for deposit ==Done==
-4. Develop tests for withdrawal ==IN PROGRESS==
-5.
-6.
+3. Develop tests and then code for deposit feature ==Done==
+4. Develop tests and then code for withdrawal feature ==Done==
+5. Work on developing tests for adding a transaction. Create an array 'this.transactions' in the transaction.js controller.
+6. Define a addTransaction method in the transaction.js controllet and test individually that it adds a transaction with the following data: credit, debit, balance, new Date().
 7.
 8.
 9.
