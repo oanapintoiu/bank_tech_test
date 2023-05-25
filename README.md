@@ -2,16 +2,16 @@
 
 ## Table of Contents
 
-[1. Specifications](#1-specifications)
-[2. Observations](#2-observations)
-[3. User Story](#3-user-story)
-[4. Diagram](#4-diagram)
-[5. Methodology Implementaion](#5-methodology-implementation)
-[6. Tickets](#6-tickets)
-[7. Test Covarage](#7-test-covarage)
-[8. Screenshots](#8-screenshots)
-[9. Instructions](#9-instructions)
-[10. Self assessment citeria](#10-self-assement)
+[1. Specifications](#1-specifications)  
+[2. Observations](#2-observations)  
+[3. User Story](#3-user-story)  
+[4. Diagram](#4-diagram)  
+[5. Methodology Implementaion](#5-methodology-implementation)  
+[6. Tickets](#6-tickets)  
+[7. Test Covarage](#7-test-covarage)  
+[8. Screenshots](#8-screenshots)  
+[9. Instructions](#9-instructions)  
+[10. Self assessment citeria](#10-self-assement)  
 
 ## 1. Specifications
 
