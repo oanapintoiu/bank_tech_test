@@ -99,7 +99,18 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 
 ### Testing
 
-1. **BankAccount Controller Tests**: tbc
+1. **BankAccount Controller Tests**: 
+
+* deposits (passed):
+  * add 1000, expect balance to be 1000;
+  * add 1000, add 1000 and expect balance to be 2000;
+
+* withdrawals (developing):
+  * add 2000, draw 1000 and expect balance to be 1000;
+  * add 2000, draw 1000, draw 500 and expect balance to be 500;
+
+
+
 
 2. **Transaction Controller Tests**: tbc
 
@@ -107,13 +118,17 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 
 ## 6. Tickets
 
-1. Develop Folder Structure. -> <span style="color:green">Done</span>
+1. Develop Folder Structure. ==Done==
+2. Install nvm, istanbul, setup jest and istanbul. ==Done==
+3. Develop tests for deposit. -> In Porgress
+4. Develop tests for withdrawal. -> Not Starter
+5.
+6.
+7.
+8.
+9.
+10.
 
-2. Install nvm, istanbul, setup jest and istanbul. -> <span style="color:green">Done</span>
-
-3. Develop tests for deposit. -> <span style="color:amber">In progress</span>
-
-4. Develop tests for withdrawal. -> <span style="color:red">Not started</span>
 
 
 ## 7. Test Covarage
