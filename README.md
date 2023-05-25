@@ -189,15 +189,6 @@ $ npm init -y
 # Add the jest package to run tests in the tests directory:
 $ npm add jest
 
-# Add instanbul to see test coverage as a 'devDependency' for this project:
-$ npm install istanbul --save-dev
-
-# Insert the following line inot the scripts section of your package.json:
-$ "coverage": "instanbul cover ./name-of-direcotry-or-file"
-
-# Then run this command to create a folder where all the geenrated reports will be held:
-$ npm run coverage
-
 ```
 
 <ins> Step 4: Running tests:
