@@ -3,9 +3,10 @@ class Transaction {
         this.transactions = [];
     }
     
-    addTransaction(credit) {
+    addTransaction(credit, debit) {
         const transaction = {
             credit,
+            debit,
         };
         this.transactions.push(transaction);
     }

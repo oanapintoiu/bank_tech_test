@@ -123,7 +123,7 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 * tests will be looking at:
   * adding a new transaction; (passed)
   * checking the correct credit amount in a deposit situation; (passed)
-  * checking the correct debit amount in a deposit situation;
+  * checking the correct debit amount in a deposit situation; (passed)
   * checking the toccrect balance in a deposit situations;
   * checking the correct credit amount in a withdrawal situation; 
   * checking the correct debit amount in a withdrawal situation;
