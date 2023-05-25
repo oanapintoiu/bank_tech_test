@@ -54,11 +54,11 @@ date || credit || debit || balance
 * The date in the spcification is for example purposes only, therefore when the program is run it will display the current date.
 
 * The program will follow the STATEMENT specifications and:
-     * use .00 or 2 decimals after the main number;
-     * format the date as per speicfications DD/MM/YYYY;
-     * use 2 pipe characters || to seperate each column;
-     * if either the debit or credit amount is missing, this will be replaced by 2 pipe characters ||;
-     * statement will display in reverse chronological order, starting with the latest transaction.
+  * use .00 or 2 decimals after the main number;
+  * format the date as per speicfications DD/MM/YYYY;
+  * use 2 pipe characters || to seperate each column;
+  * if either the debit or credit amount is missing, this will be replaced by 2 pipe characters ||;
+  * statement will display in reverse chronological order, starting with the latest transaction.
 
 * The program will take into account if any withdrawls will cause the balance to become negative and display an error of 'Insufficient funds'.
 
@@ -87,27 +87,34 @@ For more information on SOC, click [here](https://help.sap.com/doc/abapdocu_753_
 
 For more information on SRC, click [here](https://en.wikipedia.org/wiki/Single-responsibility_principle).
 
-For perspectives on the differences between SRP and SOC, you can view this article [here](https://www.petrosefthymiou.com/post/the-single-concern-vs-the-single-responsibility-principles), a second article [here](https://www.cloudnativemaster.com/post/single-responsibility-and-separation-of-concerns) and another [here](https://beyond-agility.com/what-is-the-difference-between-soc-and-srp/). 
+For perspectives on the differences between SRP and SOC, you can view this article [here](https://www.petrosefthymiou.com/post/the-single-concern-vs-the-single-responsibility-principles), a second article [here](https://www.cloudnativemaster.com/post/single-responsibility-and-separation-of-concerns) and another [here](https://beyond-agility.com/what-is-the-difference-between-soc-and-srp/).
 
+### Controller functionality
 
-### Controller functionality:
+1. **BankAccount Controller**: handles the overall functionality of the program acting as the main interface, handling operations such as withdrawals, deposits and printing statements; delegates transaction related operations to the transaction controller and statement printing to the statement controller.
 
-1. __BankAccount Controller__: handles the overall functionality of the program acting as the main interface, handling operations such as withdrawals, deposits and printing statements; delegates transaction related operations to the transaction controller and statement printing to the statement controller.
+2. **Transaction Controller**: manages, records and stores all transactions associated with the bank account class/controller and provides the user with additional information such as the transaction date, credit and debit amount, and resulting balance.
 
-2. __Transaction Controller__: manages, records and stores all transactions associated with the bank account class/controller and provides the user with additional information such as the transaction date, credit and debit amount, and resulting balance.
+3. **Statement Controller**: generates and prints the account statement in the desired format based on the stored transactions found in the transaction controller.
 
-3. __Statement Controller__: generates and prints the account statement in the desired format based on the stored transactions found in the transaction controller.
+### Testing
 
-### Testing:
+1. **BankAccount Controller Tests**: tbc
 
-1. __BankAccount Controller Tests__: tbc
+2. **Transaction Controller Tests**: tbc
 
-2. __Transaction Controller Tests__: tbc
-
-3. __Statement Controller Tests__: tbc
-
+3. **Statement Controller Tests**: tbc
 
 ## 6. Tickets
+
+1. Develop Folder Structure -> <span style="color:green"> Done </span>
+
+2. Install nvm, istanbul, setup jest and istanbul.  <span style="color:green"> Done </span>
+
+3. Develop tests for deposit.  <span style="color:orange"> In progress </span>
+
+4. Develop tests for withdrawal.  <span style="color:red"> Not started </span>
+
 
 ## 7. Test Covarage
 
@@ -171,7 +178,7 @@ $ npm add jest
 $ npm install istanbul --save-dev
 
 # Insert the following line inot the scripts section of your package.json:
-$ "coverage:" instanbul cover ./name-of-direcotry-or-file
+$ "coverage": "instanbul cover ./name-of-direcotry-or-file"
 
 # Then run this command to create a folder where all the geenrated reports will be held:
 $ npm run coverage
@@ -210,11 +217,11 @@ $
 $
 ```
 
-## 10. Self-assement 
+## 10. Self-assement
 
 ### Questions and Answers
 
-Normal Cnstraints: 
+Normal Cnstraints:
 
 ```
 1. Did you start a feature test?
@@ -231,6 +238,7 @@ Yes/No/I don't know
 ```
 
 Additional Constraints:
+
 ```
 5. Where possible, do you always test for the behaviour rather than the state? 
 Yes/No/I don't know
@@ -242,7 +250,8 @@ Yes/No/I don't know
 Yes/No/I don't know
 ```
 
-Strict Constraints: 
+Strict Constraints:
+
 ```
 8. Does your project commit history clearly show evidence of a thorough TDD process?
 Yes/No/I don't know
@@ -253,8 +262,6 @@ Yes/No/I don't know
 10. Personal perception of the quality of testing (scale of 1-4):
 1, 2, 3, 4
 ```
-
-
 
 Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: <https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit>
 
