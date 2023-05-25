@@ -33,6 +33,15 @@ describe("Bank Account", () => {
         expect(account.balance).toBe(500);
       });
 
+      it("should return an error message if withdrawal amount exceeds balance", () => {
+        const spy = jest.spyOn(console, "log");
+        account.deposit(500);
+        account.withdraw(1000);
+        expect(account.balance).toBe(500);
+        expect(spy).toHaveBeenCalledWith("Insufficient funds.");
+        
+      });
+
     });
   });
 });

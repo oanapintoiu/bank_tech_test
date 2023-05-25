@@ -108,6 +108,7 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 * withdrawals (developing):
   * add 2000, draw 1000 and expect balance to be 1000;
   * add 2000, draw 1000, draw 500 and expect balance to be 500;
+  * should return an error message if withdrawal amount exceeds balance; add 500, draw 1000, exptect to receive "Insufficient funds.'. To achieve this test, a mock environment was created by using jest.spyOn to create a 'spy' on the console.log method. By using .toHaveBeenCalledWith() the test checks the statement in the console log was called with the correct error message. For more information, check the [Jest documentation here](https://jestjs.io/docs/jest-object#jestspyonobject-methodname-accesstype).
 
 
 
@@ -118,10 +119,10 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 
 ## 6. Tickets
 
-1. Develop Folder Structure. ==Done==
-2. Install nvm, istanbul, setup jest and istanbul. ==Done==
-3. Develop tests for deposit. -> In Porgress
-4. Develop tests for withdrawal. -> Not Starter
+1. Develop Folder Structure ==Done==
+2. Install nvm, istanbul, setup jest ==Done==
+3. Develop tests for deposit ==Done==
+4. Develop tests for withdrawal ==IN PROGRESS==
 5.
 6.
 7.
@@ -208,16 +209,17 @@ $ test
 $ node
 
 # Require the class within the file:
-$
+$ const BankAccount = require('./controllers/bankAccount');
 
 # Create a new instance of the class, i.e. create a new bank accout: 
-$
+$ const account = new BankAccount();
 
 # Deposit the desired amount: 
-$
+$ account.deposit(1000);
+$ account.deposit(2000);
 
 # Withdraw the desired amount: 
-$
+$ account.withdraw(500);
 
 # Print statement: 
 $

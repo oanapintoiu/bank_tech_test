@@ -8,7 +8,11 @@ deposit(amount) {
 }
 
 withdraw(amount) {
+    if (this.balance - amount < 0) {
+        console.log("Insufficient funds.")
+    } else {
     this.balance -= amount;
+    }
 }
 
 }
