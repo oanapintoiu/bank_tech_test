@@ -9,7 +9,7 @@
 [5. Methodology Implementaion](#5-methodology-implementation)  
 [6. Tickets](#6-tickets)  
 [7. Test Covarage](#7-test-covarage)  
-[8. Screenshots](#8-screenshots)  
+[8. Screenshots: program tested in terminal](#8-screenshots-program-tested-in-terminal)  
 [9. Instructions](#9-instructions)  
 [10. Self assessment citeria](#10-self-assement)  
 
@@ -165,7 +165,19 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 
 ## 7. Test Covarage
 
-## 8. Screenshots
+1. BankAccount controller test coverage:
+
+<img src="bankAccount.js_coverage.png"
+alt="Bank Account Controller Test Coverage">
+
+2. Transaction controller test coverage: 
+
+<img src="transaction.js_coverage.png"
+alt="Transaction Controller Test Coverage">
+
+3. Statement controller test coverage:
+
+## 8. Screenshots: program tested in terminal
 
 ## 9. Instructions
 
