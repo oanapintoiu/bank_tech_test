@@ -152,16 +152,19 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 
 ## 6. Tickets
 
-1. Develop Folder Structure ==Done==
-2. Install nvm, istanbul, setup jest ==Done==
-3. Develop tests and then code for deposit feature ==Done==
-4. Develop tests and then code for withdrawal feature ==Done==
+1. Develop Folder Structure ==DONE==
+2. Install nvm, istanbul, setup jest ==DONEe==
+3. Develop tests and then code for deposit feature ==DONE==
+4. Develop tests and then code for withdrawal feature ==DONE==
 5. Work on developing tests for adding a transaction. Create an array 'this.transactions' in the transaction.js controller. ==DONE==
 6. Define a addTransaction method in the transaction.js controllet and test individually, one at a time, that it adds a transaction with the following data: credit, debit, balance, new Date(). ==DONE==
-7. Research how to call transaction.js controller into the bankAccount.js controller.  ==DONE==
-8. Update diagram based on research and changes made in the code. ==DONE==
-9.
-10.
+7. Add ESlint. ==DONE==
+8. Run ESlint and fix all issues. ==DONE==
+9. Research how to call transaction.js controller into the bankAccount.js controller.  ==DONE==
+10. Update diagram based on research and changes made in the code. ==DONE==
+11. Update tests and then code based on reseach the research mentioned at point 7. ==DONE==
+12. Further test the behaviours of the deposit and withdrawal methods found in the bankAccount.js controller now that the Transaction class has been called into the BankAccount class via the usage of the addTransaction method. ==DONE==
+13. Upload fist coverage tests - to be updated as tests progress. ==ONGOING==
 
 ## 7. Test Covarage
 
