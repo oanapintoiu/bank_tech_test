@@ -240,6 +240,12 @@ alt="Date Terminal Test">
 <img src="stament_reverse_order.png"
 alt="Date Terminal Test">
 
+7. Added pipe symbols in between strings and values:
+
+<img src="added_pipe_symbols.png"
+alt="Date Terminal Test">
+
+
 ## 9. Instructions
 
 ### Running JavaScript

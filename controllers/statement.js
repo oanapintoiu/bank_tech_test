@@ -4,9 +4,13 @@ class Statement {
   }
 
   printStatement() {
-    console.log('date || credit || debit || balance');
+    console.log("date || credit || debit || balance");
     this.bankStatement.transactions.reverse().forEach((transaction) => {
-      console.log(transaction.date.toLocaleDateString('en-GB'), transaction.credit, transaction.debit, transaction.balance);
+      console.log(
+        `${transaction.date.toLocaleDateString("en-GB")} || ${
+          transaction.credit
+        } || ${transaction.debit} || ${transaction.balance}`
+      );
     });
   }
 }

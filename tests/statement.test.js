@@ -26,7 +26,7 @@ describe('print statement', () => {
     account.printStatement();
 
     expect(consoleSpy).toHaveBeenCalledWith('date || credit || debit || balance');
-    expect(consoleSpy).toHaveBeenCalledWith("26/06/2023", 1000, 0, 1000);
+    expect(consoleSpy).toHaveBeenCalledWith("26/06/2023 || 1000 || 0 || 1000");
   });
 
   describe("mock the dependency of time", () => {
