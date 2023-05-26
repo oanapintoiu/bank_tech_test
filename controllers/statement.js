@@ -6,7 +6,7 @@ class Statement {
   printStatement() {
     console.log('credit, debit, balance');
     this.bankStatement.transactions.forEach((transaction) => {
-      console.log(transaction.credit, transaction.debit, transaction.balance);
+      console.log(transaction.date, transaction.credit, transaction.debit, transaction.balance);
     });
   }
 }

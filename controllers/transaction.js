@@ -5,6 +5,7 @@ class Transaction {
 
   addTransaction(credit, debit, balance) {
     const transaction = {
+      date: new Date(),
       credit,
       debit,
       balance,
