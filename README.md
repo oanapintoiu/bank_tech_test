@@ -117,6 +117,10 @@ For perspectives on the differences between SRP and SOC, you can view this artic
   * add 2000, draw 1000, draw 500 and expect balance to be 500;
   * should return an error message if withdrawal amount exceeds balance; add 500, draw 1000, exptect to receive "Insufficient funds.'. To achieve this test, a mock environment was created by using jest.spyOn to create a 'spy' on the console.log method. By using .toHaveBeenCalledWith() the test checks the statement in the console log was called with the correct error message. For more information, check the [Jest documentation here](https://jestjs.io/docs/jest-object#jestspyonobject-methodname-accesstype).
 
+* updated tests so that the behaviour is also tested, not just the state by focusing on testing the methods and their outcomes:
+  * deposit: expect balance to be 1000; transaction length 1, position in array 0, credit value 1000, debit value 0 and balance value 1000;
+  * deposit second scenatio: expect balance to be 2000; transaction length 2, position in array 0, credit value 2000, debit value 0 and balance value 2000;
+
 2. **Transaction Controller Tests**:
 
 * key notes:

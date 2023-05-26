@@ -2,21 +2,31 @@ const BankAccount = require('../controllers/bankAccount');
 
 describe('Bank Account', () => {
   let account;
+  let transactionArray;
 
   beforeEach(() => {
     account = new BankAccount();
+    transactionArray = account.bankTransaction.transactions;
   });
 
   describe('deposit feature', () => {
     it('should increase the balance by 1000', () => {
       account.deposit(1000);
       expect(account.balance).toBe(1000);
+      expect(transactionArray.length).toBe(1);
+      expect(transactionArray[0].credit).toBe(1000);
+      expect(transactionArray[0].debit).toBe(0);
+      expect(transactionArray[0].balance).toBe(1000);
     });
 
     it('should increase the balance by 1000', () => {
       account.deposit(1000);
       account.deposit(1000);
       expect(account.balance).toBe(2000);
+      expect(transactionArray.length).toBe(2);
+      expect(transactionArray[0].credit).toBe(1000);
+      expect(transactionArray[0].debit).toBe(0);
+      expect(transactionArray[0].balance).toBe(1000);
     });
 
     describe('withdrawal feature', () => {
