@@ -74,8 +74,13 @@ date || credit || debit || balance
 
 ## 4. Diagram
 
+Diagram Version 1
 <img src="bank_test_diagram.png"
-     alt="Bank Test Diagram">
+alt="Bank Test Diagram">
+
+Diagram Version 2
+<img src="diagram_v2.png"
+alt="Bank Test Diagram v2">
 
 ## 5. Methodology Implementation
 
@@ -99,9 +104,9 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 
 ### Testing
 
-1. **BankAccount Controller Tests**: 
+1. **BankAccount Controller Tests**:
 
-* key notes: declared a variable `account` using `let` that will represent the creation of a new instance of the `BankAccount class` at the start of each test. 
+* key notes: declared a variable `account` using `let` that will represent the creation of a new instance of the `BankAccount class` at the start of each test.
 
 * deposits (passed):
   * add 1000, expect balance to be 1000;
@@ -112,22 +117,28 @@ For perspectives on the differences between SRP and SOC, you can view this artic
   * add 2000, draw 1000, draw 500 and expect balance to be 500;
   * should return an error message if withdrawal amount exceeds balance; add 500, draw 1000, exptect to receive "Insufficient funds.'. To achieve this test, a mock environment was created by using jest.spyOn to create a 'spy' on the console.log method. By using .toHaveBeenCalledWith() the test checks the statement in the console log was called with the correct error message. For more information, check the [Jest documentation here](https://jestjs.io/docs/jest-object#jestspyonobject-methodname-accesstype).
 
-
-2. **Transaction Controller Tests**: 
+2. **Transaction Controller Tests**:
 
 * key notes:
   * created a seperate test file for this controller for ease of use;
   * used the previous test (for bankAccount.js) as a template and built up on it;
   * declared 3 variables: `account` - new instance of `BankAccount class`, `newTransaction` - new instantace of `Transaction class` and lastly `transactionsArray` which creates a new variable that can hold a referece to the actual transactions array found in the controller.  
 
-* tests will be looking at:
-  * adding a new transaction; (passed)
-  * checking the correct credit amount in a deposit situation; (passed)
-  * checking the correct debit amount in a deposit situation; (passed)
-  * checking the correct balance in a deposit situations;
-  * checking the correct credit amount in a withdrawal situation; 
-  * checking the correct debit amount in a withdrawal situation;
-  * checking the toccrect balance in a withdrawal situations;
+* add new transaction (passed):
+  * added new transaction
+
+  * in a deposit transaction (passed):
+  * checking the correct credit amount; (passed)
+  * checking the correct debit amount; (passed)
+  * checking the correct balance; (passed)
+  * all tests passed by calling the addTransaction method directly into each test and assigning values for credit, debit and balance (`newTransaction.addTransaction(1000, 0, 1000)`).
+
+  * in a deposit transaction (passed):
+  * checking the correct credit, debit and balance amount; (failed with previous code where addTransaction method was called and values assigned to credit, debit and balance)
+  * had to update code to now integrate the addTransaction method to the BankAccount class as per initial design; created a new instance variable `this.bankTransaction` that itself created a new instance of the `Transaction class` via `new Transaction` which will then allow for the definition and use of the `addTransaction` method found withing the `Transaction class`.
+  * the assigned values for credit, debit and balance were removed from the test (`newTransaction.addTransaction(1000, 0, 1000)`) and were replaced with a call method within the bankAccount.js controller (`this.bankTransaction.addTransaction(amount, 0, this.balance);`, an example for the deposit method, where one should expect to be in a credit situation where credit has a amount, debit is 0 and the balance is also an ammount defined the number of deposits added)
+  * `Transaction class` is no longer being called into the test as it is now being assigned via the `BankAccount class`;
+  * checking the correct credit, debit and balance amount in a withdrawal situation;(passed)
 
 3. **Statement Controller Tests**: tbc
 
@@ -137,14 +148,12 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 2. Install nvm, istanbul, setup jest ==Done==
 3. Develop tests and then code for deposit feature ==Done==
 4. Develop tests and then code for withdrawal feature ==Done==
-5. Work on developing tests for adding a transaction. Create an array 'this.transactions' in the transaction.js controller.
-6. Define a addTransaction method in the transaction.js controllet and test individually, one at a time, that it adds a transaction with the following data: credit, debit, balance, new Date().
-7.
-8.
+5. Work on developing tests for adding a transaction. Create an array 'this.transactions' in the transaction.js controller. ==DONE==
+6. Define a addTransaction method in the transaction.js controllet and test individually, one at a time, that it adds a transaction with the following data: credit, debit, balance, new Date(). ==DONE==
+7. Research how to call transaction.js controller into the bankAccount.js controller.  ==DONE==
+8. Update diagram based on research and changes made in the code. ==DONE==
 9.
 10.
-
-
 
 ## 7. Test Covarage
 

@@ -1,25 +1,30 @@
-const BankAccount = require("../controllers/bankAccount");
-const Transaction = require("../controllers/transaction");
+const BankAccount = require('../controllers/bankAccount');
 
-describe("transactions feature within the Bank Account", () => {
+describe('transactions feature within the Bank Account', () => {
   let account;
-  let newTransaction;
   let transactionArray;
 
   beforeEach(() => {
     account = new BankAccount();
-    newTransaction = new Transaction(); 
-    transactionArray = newTransaction.transactions; 
+    transactionArray = account.bankTransaction.transactions;
   });
 
-  describe("transaction", () => {
-    it("should add a transaction with the correct credit amount", () => {
+  describe('transaction', () => {
+    it('should add a transaction with the correct credit amount and balance', () => {
       account.deposit(1000);
-      newTransaction.addTransaction(1000, 0, 1000); // calls the add transaction method with the correct credit amount
       expect(transactionArray[0].credit).toBe(1000);
       expect(transactionArray.length).toBe(1);
       expect(transactionArray[0].debit).toBe(0);
       expect(transactionArray[0].balance).toBe(1000);
+    });
+
+    it('should add a transaction with the correct debit amount and balance', () => {
+      account.deposit(1500);
+      account.withdraw(500);
+      expect(transactionArray[1].credit).toBe(0);
+      expect(transactionArray.length).toBe(2);
+      expect(transactionArray[1].debit).toBe(500);
+      expect(transactionArray[1].balance).toBe(1000);
     });
   });
 });
