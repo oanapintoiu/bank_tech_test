@@ -167,6 +167,7 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 * print statement diplaying credit string and its value (PASSED) :
   * used jest.spyOn again to track calls to the `console.log` during the tests
   * the test looks at the behaviour of the printStatement method wehre `account.deposit(1000)` deposits 1000 so the account is in credit which the assertions should verify that when the console.log is called, it will return the argument "credit" and the its associated value of 1000.
+  * mocked the dependency of time following guidance from [here](https://www.benoitpaul.com/blog/javascript/jest-mock-date/). Worth noting that in JavaScript the 'Date' object starts counting the months from 0, so for example, June would be index 5.
 
 
 
