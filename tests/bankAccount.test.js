@@ -1,6 +1,6 @@
-const BankAccount = require('../controllers/bankAccount');
+const BankAccount = require("../controllers/bankAccount");
 
-describe('Bank Account', () => {
+describe("Bank Account", () => {
   let account;
   let transactionArray;
 
@@ -9,8 +9,8 @@ describe('Bank Account', () => {
     transactionArray = account.bankTransaction.transactions;
   });
 
-  describe('deposit feature', () => {
-    it('should increase the balance by 1000', () => {
+  describe("deposit feature", () => {
+    it("should increase the balance by 1000", () => {
       account.deposit(1000);
       expect(account.balance).toBe(1000);
       expect(transactionArray.length).toBe(1);
@@ -19,7 +19,7 @@ describe('Bank Account', () => {
       expect(transactionArray[0].balance).toBe(1000);
     });
 
-    it('should increase the balance by 1000', () => {
+    it("should increase the balance by 1000", () => {
       account.deposit(1000);
       account.deposit(1000);
       expect(account.balance).toBe(2000);
@@ -29,26 +29,37 @@ describe('Bank Account', () => {
       expect(transactionArray[0].balance).toBe(1000);
     });
 
-    describe('withdrawal feature', () => {
-      it('should decrease the balance from 2000 to 1000', () => {
+    describe("withdrawal feature", () => {
+      it("should decrease the balance from 2000 to 1000", () => {
         account.deposit(2000);
         account.withdraw(1000);
         expect(account.balance).toBe(1000);
+        expect(transactionArray.length).toBe(2);
+        expect(transactionArray[1].credit).toBe(0);
+        expect(transactionArray[1].debit).toBe(1000);
+        expect(transactionArray[1].balance).toBe(1000);
+        expect(transactionArray[0].balance).toBe(2000);
       });
 
-      it('should decrease the balance from 2000 to 1000', () => {
+      it("should decrease the balance from 2000 to 1000", () => {
         account.deposit(2000);
         account.withdraw(1000);
         account.withdraw(500);
         expect(account.balance).toBe(500);
+        expect(transactionArray.length).toBe(3);
+        expect(transactionArray[1].credit).toBe(0);
+        expect(transactionArray[1].debit).toBe(1000)
+        expect(transactionArray[2].debit).toBe(500);
+        expect(transactionArray[1].balance).toBe(1000);
+        expect(transactionArray[0].balance).toBe(2000);
       });
 
-      it('should return an error message if withdrawal amount exceeds balance', () => {
-        const spy = jest.spyOn(console, 'log');
+      it("should return an error message if withdrawal amount exceeds balance", () => {
+        const spy = jest.spyOn(console, "log");
         account.deposit(500);
         account.withdraw(1000);
         expect(account.balance).toBe(500);
-        expect(spy).toHaveBeenCalledWith('Insufficient funds.');
+        expect(spy).toHaveBeenCalledWith("Insufficient funds.");
       });
     });
   });
