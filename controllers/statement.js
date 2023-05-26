@@ -3,15 +3,19 @@ class Statement {
     this.bankStatement = bankStatement;
   }
 
+  formatAmount(amount) {
+    return amount !== 0 ? amount.toFixed(2) : '';
+  }
+
   printStatement() {
-    console.log("date || credit || debit || balance");
+    console.log('date || credit || debit || balance');
     this.bankStatement.transactions.reverse().forEach((transaction) => {
       console.log(
-        `${transaction.date.toLocaleDateString("en-GB")} || ${
-          transaction.credit !== 0 ? transaction.credit.toFixed(2) : ""
-        } || ${transaction.debit !== 0 ? transaction.debit.toFixed(2) : ""} || ${
-          transaction.balance.toFixed(2)
-        }`
+        `${transaction.date.toLocaleDateString('en-GB')} || ${this.formatAmount(
+          transaction.credit
+        )} || ${this.formatAmount(transaction.debit)}|| ${this.formatAmount(
+          transaction.balance
+        )}`
       );
     });
   }

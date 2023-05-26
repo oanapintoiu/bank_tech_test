@@ -248,12 +248,7 @@ alt="Statement in Reverse Chronological Order">
 <img src="screenshots/added_pipe_symbols.png"
 alt="Date Terminal Test">
 
-8. Added pipe symbols whenever debit or credit is 0 using truthy/falsy:
-
-<img src="screenshots/added_pipe_symbols.png"
-alt="Date Terminal Test">
-
-9. Printed statement following specifications: 
+8. Printed statement following specifications: 
 
 <img src="screenshots/bank_statement.png"
 alt="Bank Statement">
