@@ -15,7 +15,7 @@ describe('print statement', () => {
 
     account.printStatement();
 
-    expect(consoleSpy).toHaveBeenCalledWith('credit, debit, balance');
+    expect(consoleSpy).toHaveBeenCalledWith('date || credit || debit || balance');
     expect(consoleSpy).toHaveBeenCalledWith(expect.any(Date), 1000, 0, 1000);
   });
 

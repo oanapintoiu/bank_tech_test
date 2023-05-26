@@ -106,9 +106,15 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 * delegates transaction related operations to the transaction controller and statement printing to the statement controller.
 * it is important to note that the `bankTransaction` instance of the `Transaction class` needed to be PASSED from the `BankAccount class` to the instance of `Statement class` to ensure that both classes are sharing the same instance of the `Transaction class` and that the transactions added in the `BankAccount class` are accessible in the `Statement class`
 
-2. **Transaction Controller**: manages, records and stores all transactions associated with the bank account class/controller and provides the user with additional information such as the transaction date, credit and debit amount, and resulting balance.
+2. **Transaction Controller**: 
 
-3. **Statement Controller**: generates and prints the account statement in the desired format based on the stored transactions found in the transaction controller.
+* manages, records and stores all transactions associated with the bank account class/controller;
+* provides the user with additional information such as the transaction date, credit and debit amount, and resulting balance.
+
+3. **Statement Controller**: 
+
+* generates and prints the account statement in the desired format based on the stored transactions found in the transaction controller;
+* the date value uses `toLocaleDateString()` method to return the date object in the required format. More information on this method can be found [here](https://www.codecademy.com/resources/docs/javascript/dates/toLocaleDateString).
 
 ### Testing
 
@@ -208,15 +214,20 @@ alt="Transaction Controller Test Coverage">
 <img src="screenshots/deposit_credit_balalance_test.png"
 alt="Deposit, Withdrawal and Balance Node Test">
 
-2. Print Statement test: credit, debit, balance - no formatting. 
+2. Print Statement test: credit, debit, balance - no formatting: 
 
 <img src="screenshots/node_print_test.png"
 alt="Deposit, Withdrawal and Balance Node Test">
 
-3. Print Statement test continued: credit, debit, balance - no formatting. 
+3. Print Statement test continued: credit, debit, balance - no formatting:
 
 <img src="screenshots/node_print_test2.png"
-alt="Deposit, Withdrawal and Balance Node Test">
+alt="Deposit, Withdrawal and Balance Node Test 2">
+
+4. Date terminal test: 
+
+<img src="screenshots/date_terminal_test.png"
+alt="Date Terminal Test">
 
 ## 9. Instructions
 
