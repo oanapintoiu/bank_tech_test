@@ -230,6 +230,16 @@ alt="Deposit, Withdrawal and Balance Node Test 2">
 <img src="screenshots/date_terminal_test.png"
 alt="Date Terminal Test">
 
+5. Date formatted into DD/MM/YYYY:
+
+<img src="screenshots/date_DD:MM:YY_format.png"
+alt="Date Terminal Test">
+
+6. Statement showing in reverse order:
+
+<img src="stament_reverse_order.png"
+alt="Date Terminal Test">
+
 ## 9. Instructions
 
 ### Running JavaScript
@@ -333,10 +343,10 @@ Normal Cnstraints:
 Yes
 
 2. Do the tests pass?
-Yes/No/I don't know
+Yes
 
 3. Is the test coverage high? (>95%)
-Yes/No/I don't know
+Yes, 100%
 
 4. Do the unit tests mock the dependencies of the object they are testing?
 Yes/No/I don't know
@@ -346,26 +356,26 @@ Additional Constraints:
 
 ```
 5. Where possible, do you always test for the behaviour rather than the state? 
-Yes/No/I don't know
+Yes
 
 6. Do the test descriptions read clearly?
-Yes/No/I don't know
+Yes
 
 7. Do you make appropriate use of the testing framework's method to keep your test code clean? 
-Yes/No/I don't know
+Yes
 ```
 
 Strict Constraints:
 
 ```
 8. Does your project commit history clearly show evidence of a thorough TDD process?
-Yes/No/I don't know
+Yes
 
 9. Have you mocked the dependecy Time?
-Yes/No/I don't know
+Yes
 
 10. Personal perception of the quality of testing (scale of 1-4):
-1, 2, 3, 4
+3
 ```
 
 Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: <https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit>
