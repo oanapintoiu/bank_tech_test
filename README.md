@@ -206,7 +206,10 @@ alt="Bank Account Controller Test Coverage">
 <img src="screenshots/transaction.js_coverage.png"
 alt="Transaction Controller Test Coverage">
 
-3. Statement controller test coverage:
+3. Statement controller test coverage, all tests included at this point:
+
+<img src="screenshots/test_coverage.png"
+alt="All Tests Coverage">
 
 ## 8. Screenshots: program tested in terminal
 
@@ -235,16 +238,25 @@ alt="Date Terminal Test">
 <img src="screenshots/date_DD:MM:YY_format.png"
 alt="Date Terminal Test">
 
-6. Statement showing in reverse order:
+6. Statement showing in reverse chronological order:
 
-<img src="stament_reverse_order.png"
-alt="Date Terminal Test">
+<img src="screenshots/stament_reverse_order.png"
+alt="Statement in Reverse Chronological Order">
 
 7. Added pipe symbols in between strings and values:
 
-<img src="added_pipe_symbols.png"
+<img src="screenshots/added_pipe_symbols.png"
 alt="Date Terminal Test">
 
+8. Added pipe symbols whenever debit or credit is 0 using truthy/falsy:
+
+<img src="screenshots/added_pipe_symbols.png"
+alt="Date Terminal Test">
+
+9. Printed statement following specifications: 
+
+<img src="screenshots/bank_statement.png"
+alt="Bank Statement">
 
 ## 9. Instructions
 
