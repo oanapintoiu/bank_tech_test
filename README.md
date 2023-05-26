@@ -74,11 +74,11 @@ date || credit || debit || balance
 
 ## 4. Diagram
 
-Diagram Version 1
+1. Diagram Version 1
 <img src="bank_test_diagram.png"
 alt="Bank Test Diagram">
 
-Diagram Version 2
+2. Diagram Version 2
 <img src="diagram_v2.png"
 alt="Bank Test Diagram v2">
 
@@ -165,6 +165,7 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 11. Update tests and then code based on reseach the research mentioned at point 7. ==DONE==
 12. Further test the behaviours of the deposit and withdrawal methods found in the bankAccount.js controller now that the Transaction class has been called into the BankAccount class via the usage of the addTransaction method. ==DONE==
 13. Upload fist coverage tests - to be updated as tests progress. ==ONGOING==
+14. Do tests in node/terminal. ==ONGOING==
 
 ## 7. Test Covarage
 
@@ -181,6 +182,12 @@ alt="Transaction Controller Test Coverage">
 3. Statement controller test coverage:
 
 ## 8. Screenshots: program tested in terminal
+
+1. Initial test checking deposit, withdrawal and balance features: 
+
+<img src="deposit_credit_balalance_test.png"
+alt="Deposit, Withdrawal and Balance Node Test">
+
 
 ## 9. Instructions
 
@@ -266,6 +273,9 @@ $ account.deposit(2000);
 
 # Withdraw the desired amount: 
 $ account.withdraw(500);
+
+# See just balance: 
+$ account.balance;
 
 # Print statement: 
 $
