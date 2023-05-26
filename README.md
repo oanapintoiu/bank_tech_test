@@ -178,9 +178,9 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 10. Update diagram based on research and changes made in the code. ==DONE==
 11. Update tests and then code based on reseach the research mentioned at point 7. ==DONE==
 12. Further test the behaviours of the deposit and withdrawal methods found in the bankAccount.js controller now that the Transaction class has been called into the BankAccount class via the usage of the addTransaction method. ==DONE==
-13. Upload fist coverage tests - to be updated as tests progress. ==ONGOING==
+13. Upload coverage tests - to be updated as tests progress. ==ONGOING==
 14. Do tests in node/terminal. ==ONGOING==
-15. work on developing the tests and then code for creating a statement. ==DONE==
+15. Work on developing the tests and then code for creating a statement. ==DONE==
 16. Update diagram to display changes in code. ==DONE==
 17. Continue adding tests and code for statement: debit, balance and time.==ONGOING==
 18. Add decimals to values. ==TO DO==
@@ -203,11 +203,20 @@ alt="Transaction Controller Test Coverage">
 
 ## 8. Screenshots: program tested in terminal
 
-1. Initial test checking deposit, withdrawal and balance features: 
+1. Initial test checking deposit, withdrawal and balance features:
 
 <img src="screenshots/deposit_credit_balalance_test.png"
 alt="Deposit, Withdrawal and Balance Node Test">
 
+2. Print Statement test: credit, debit, balance - no formatting. 
+
+<img src="screenshots/node_print_test.png"
+alt="Deposit, Withdrawal and Balance Node Test">
+
+3. Print Statement test continued: credit, debit, balance - no formatting. 
+
+<img src="screenshots/node_print_test2.png"
+alt="Deposit, Withdrawal and Balance Node Test">
 
 ## 9. Instructions
 

@@ -9,12 +9,14 @@ beforeEach(() => {
 });
 
 describe('print statement', () => {
-  it('should print the account statement displaying a credit string its value', () => {
+  
+  it('should print the account statement displaying a credit, debit, balance string thier values', () => {
     account.deposit(1000);
 
     account.printStatement();
 
-    expect(consoleSpy).toHaveBeenCalledWith('credit');
-    expect(consoleSpy).toHaveBeenCalledWith(1000);
+    expect(consoleSpy).toHaveBeenCalledWith('credit, debit, balance');
+    expect(consoleSpy).toHaveBeenCalledWith(1000, 0, 1000);
   });
+  
 });
