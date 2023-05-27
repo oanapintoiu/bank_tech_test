@@ -57,10 +57,10 @@ date || credit || debit || balance
   * use .00 or 2 decimals after the main number;
   * format the date as per speicfications DD/MM/YYYY;
   * use 2 pipe characters || to seperate each column;
-  * if either the debit or credit amount is missing, this will be replaced by 2 pipe characters ||;
+  * if either the debit or credit amount is 0 or missing, the amount will not be displayed;
   * statement will display in reverse chronological order, starting with the latest transaction.
 
-* The program will take into account if any withdrawls will cause the balance to become negative and display an error of 'Insufficient funds'.
+* The program will take into account if any withdrawls will go above the balance amount or if the amount has more than 2 decimals and display an error message.
 
 ## 3. User Story
 
@@ -70,6 +70,8 @@ date || credit || debit || balance
 3. As a user, I would like to request the printing of my account statement that shows me the date, amount and balance.
 4. As a user I would like my statement to have a header. 
 5. As a user, I would like to see my latest transaction first when printing my statement.
+6. As a user, I would like to be notified if my withdrawal request goes above my balance.
+7. As a user, I would like to only be able to deposit an amount with up to 2 decimal places otherwise I will get an error. 
 ```
 
 ## 4. Diagram
@@ -125,11 +127,13 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 * deposits (PASSED):
   * add 1000, expect balance to be 1000;
   * add 1000, add 1000 and expect balance to be 2000;
+  * should return an error message if the amount has more than 2 decimal places; add 1000.123 and check that there was no deposit made, no transaction has occured and the error message `Error: Only 2 decimal place allowed.` was received.
 
-* withdrawals (developing):
+* withdrawals (PASSED):
   * add 2000, draw 1000 and expect balance to be 1000;
   * add 2000, draw 1000, draw 500 and expect balance to be 500;
-  * should return an error message if withdrawal amount exceeds balance; add 500, draw 1000, exptect to receive "Insufficient funds.'. To achieve this test, a mock environment was created by using jest.spyOn to create a 'spy' on the console.log method. By using .toHaveBeenCalledWith() the test checks the statement in the console log was called with the correct error message. For more information, check the [Jest documentation here](https://jestjs.io/docs/jest-object#jestspyonobject-methodname-accesstype).
+  * should return an error message if withdrawal amount exceeds balance; add 500, draw 1000, exptect to receive`Error: Insufficient funds.`. To achieve this test, a mock environment was created by using jest.spyOn to create a 'spy' on the console.log method. By using .toHaveBeenCalledWith() the test checks the statement in the console log was called with the correct error message. For more information, check the [Jest documentation here](https://jestjs.io/docs/jest-object#jestspyonobject-methodname-accesstype).
+  * should return an error message if the amount has more than 2 decimal places; add 1100, draw 1000.123 and check that there is still an amount of 1100 remaining, only one transaction has occured and the error message `Error: Only 2 decimal place allowed.` was received.
 
 * updated tests so that the behaviour (`account.deposit()`, `account.withdraw()`) is furter tested, by focusing on testing the methods and their outcomes (via the state related assertions such as `expect(transaction.length).toBe();`):
   * deposit: expect balance to be 1000; transaction length 1, position in array 0, credit value 1000, debit value 0 and balance value 1000;
@@ -146,29 +150,32 @@ For perspectives on the differences between SRP and SOC, you can view this artic
   * used the previous test (for bankAccount.js) as a template and built up on it;
   * declared 3 variables: `account` - new instance of `BankAccount class`, `newTransaction` - new instantace of `Transaction class` and lastly `transactionsArray` which creates a new variable that can hold a referece to the actual transactions array found in the controller.  
 
-* add new transaction (PASSED):
-  * added new transaction
-
-  * in a deposit transaction (PASSED):
-  * checking the correct credit amount; (PASSED)
-  * checking the correct debit amount; (PASSED)
-  * checking the correct balance; (PASSED)
+* add new transaction (ALL PASSED):
+  * added new transaction;
+  * in a deposit transaction;
+  * checking the correct credit amount; 
+  * checking the correct debit amount; 
+  * checking the correct balance; 
   * all tests PASSED by calling the addTransaction method directly into each test and assigning values for credit, debit and balance (`newTransaction.addTransaction(1000, 0, 1000)`).
 
-  * in a deposit transaction (PASSED):
+  * in a deposit transaction (ALL PASSED):
   * checking the correct credit, debit and balance amount; (failed with previous code where addTransaction method was called and values assigned to credit, debit and balance)
   * had to update code to now integrate the addTransaction method to the BankAccount class as per initial design; created a new instance variable `this.bankTransaction` that itself created a new instance of the `Transaction class` via `new Transaction` which will then allow for the definition and use of the `addTransaction` method found withing the `Transaction class`.
   * the assigned values for credit, debit and balance were removed from the test (`newTransaction.addTransaction(1000, 0, 1000)`) and were replaced with a call method within the bankAccount.js controller (`this.bankTransaction.addTransaction(amount, 0, this.balance);`, an example for the deposit method, where one should expect to be in a credit situation where credit has a amount, debit is 0 and the balance is also an ammount defined the number of deposits added)
   * `Transaction class` is no longer being called into the test as it is now being assigned via the `BankAccount class`;
-  * checking the correct credit, debit and balance amount in a withdrawal situation;(PASSED)
+  * checking the correct credit, debit and balance amount in a withdrawal situation.
 
 3. **Statement Controller Tests**: 
 
-* print statement diplaying credit string and its value (PASSED) :
+* print statement diplaying credit string and its value (ALL PASSED) :
   * used jest.spyOn again to track calls to the `console.log` during the tests
-  * the test looks at the behaviour of the printStatement method wehre `account.deposit(1000)` deposits 1000 so the account is in credit which the assertions should verify that when the console.log is called, it will return the argument "credit" and the its associated value of 1000.
+  * the test looks at the behaviour of the printStatement method wehre `account.deposit(1000)` deposits 1000 so the account is in credit which the assertions should verify that when the console.log is called, it will return the argument "credit" and the its associated value of 1000;
   * mocked the dependency of time following guidance from [here](https://www.benoitpaul.com/blog/javascript/jest-mock-date/). Worth noting that in JavaScript the 'Date' object starts counting the months from 0, so for example, June would be index 5.
 
+4. **Formatting Tests**
+
+* `.toFixed(2)` was used to ensure only 2 decimals are printed out;
+* to format the spaces in between the pipe columns `?` operator was used to check that either the debit or credit amount exits. `: ''` if the formatted debit amount exists, it is added a leading space, otherwise an empty string is added to maintain the correct spacing.
 
 
 ## 6. Tickets
@@ -185,14 +192,15 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 10. Update diagram based on research and changes made in the code. ==DONE==
 11. Update tests and then code based on reseach the research mentioned at point 7. ==DONE==
 12. Further test the behaviours of the deposit and withdrawal methods found in the bankAccount.js controller now that the Transaction class has been called into the BankAccount class via the usage of the addTransaction method. ==DONE==
-13. Upload coverage tests - to be updated as tests progress. ==ONGOING==
-14. Do tests in node/terminal. ==ONGOING==
+13. Upload coverage tests - to be updated as tests progress. ==DONE==
+14. Do tests in node/terminal. ==DONE==
 15. Work on developing the tests and then code for creating a statement. ==DONE==
 16. Update diagram to display changes in code. ==DONE==
-17. Continue adding tests and code for statement: debit, balance and time.==ONGOING==
-18. Add decimals to values. ==TO DO==
-19. Check formatting, specifications and any refactoring opportunities. ==TO DO==
+17. Continue adding tests and code for statement: debit, balance and time.==DONE==
+18. Add decimals to values. ==DONE==
+19. Check formatting, specifications and any refactoring opportunities. ==DONE==
 20. Check README is complete and submit project. ==TO DO==
+21. Added error for depositing or withrdrawing an amount exceeding 2 decimals. ==DONE==
 
 ## 7. Test Covarage
 
@@ -210,6 +218,13 @@ alt="Transaction Controller Test Coverage">
 
 <img src="screenshots/test_coverage.png"
 alt="All Tests Coverage">
+
+4. ESlint - all errors fixed and cleared: 
+
+Note: in two situations `this` was used to call upon a method ([see here for more details](https://www.w3schools.com/js/js_function_call.asp)) and ESlint gave an error. One was fixed by turning the method into const declaration and the other by using the keyword `static`and turned the (regurlar) method into a static method ([read more here on static methods](https://javascript.info/static-properties-methods)).
+
+<img src="screenshots/this_eslint_error.png"
+alt="All ESLint Errors Cleared">
 
 ## 8. Screenshots: program tested in terminal
 
@@ -252,6 +267,16 @@ alt="Date Terminal Test">
 
 <img src="screenshots/bank_statement.png"
 alt="Bank Statement">
+
+9. Printed statement with the correct space formatting and according to specifications: 
+
+<img src="screenshots/correct_formatting.png"
+alt="Bank Statement according to Specifications">
+
+10. Finished product:
+
+<img src="screenshots/full_node_test.png"
+alt="Finished product tested in REPL/NODE">
 
 ## 9. Instructions
 
@@ -313,14 +338,53 @@ $ npm add jest
 
 ```
 # Please check that all tests are running in the test directory before running the program in REPL: 
+$ npx jest
+
+# alternatively try:
 $ jest
 
+
 # To see test coverage then run: 
+$ npx jest --coverage
+
+# alternatively try:
 $ test
 ```
 
 <ins> Step 5: Running the program/app in REPL:
 
+__OPTIONN 1__ 
+
+```
+# In your terminal run the file BankStatement.js:
+$ node BankAccountStatement.js
+
+# and you should get the following output:
+
+date || credit || debit || balance
+26/05/2023 || || 500.00 || 2500.00
+26/05/2023 || 2000.00 || || 3000.00
+26/05/2023 || 1000.00 || || 1000.00
+```
+
+__OPTION 2__
+
+```
+# In your terminal run the file BankStatementWithErrors.js:
+$ node BankStatementWithErrors.js
+
+# and you should get the following output:
+
+Error: Only 2 decimal places allowed.
+Error: Only 2 decimal places allowed.
+Error: Insufficient funds.
+date || credit || debit || balance
+27/05/2023 || || 500.00 || 2500.00
+27/05/2023 || 2000.00 || || 3000.00
+27/05/2023 || 1000.00 || || 1000.00
+```
+
+__OPTION 3__
 ```
 # Run node to open the node REPL:
 $ node
@@ -342,7 +406,18 @@ $ account.withdraw(500);
 $ account.balance;
 
 # Print statement: 
-$
+$ account.printStatement();
+
+# To see account data:
+$ account
+
+# To get a deposit error:
+$ account.deposit(1000.123)
+
+# To get a withdrawal error:
+$ account.withdraw(1000.123)
+
+# To get an 'Insufficient funds error' ensure that the balance is lower than the withdrawal amount, i.e. balance can be 1000 and withdrawal amaount 2000.
 ```
 
 ## 10. Self-assement
@@ -362,7 +437,7 @@ Yes
 Yes, 100%
 
 4. Do the unit tests mock the dependencies of the object they are testing?
-Yes/No/I don't know
+Yes
 ```
 
 Additional Constraints:

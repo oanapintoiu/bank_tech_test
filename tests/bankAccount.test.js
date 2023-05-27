@@ -3,10 +3,12 @@ const BankAccount = require('../controllers/bankAccount');
 describe('Bank Account', () => {
   let account;
   let transactionArray;
+  let spy;
 
   beforeEach(() => {
     account = new BankAccount();
     transactionArray = account.bankTransaction.transactions;
+    spy = jest.spyOn(console, 'log');
   });
 
   describe('deposit feature', () => {
@@ -17,6 +19,13 @@ describe('Bank Account', () => {
       expect(transactionArray[0].credit).toBe(1000);
       expect(transactionArray[0].debit).toBe(0);
       expect(transactionArray[0].balance).toBe(1000);
+    });
+
+    it('should not allow deposit with more than 2 decimal places', () => {
+      account.deposit(1000.123);
+      expect(account.balance).toBe(0);
+      expect(transactionArray.length).toBe(0);
+      expect(spy).toHaveBeenCalledWith('Error: Only 2 decimal places allowed.');
     });
 
     it('should increase the balance by 1000', () => {
@@ -55,11 +64,20 @@ describe('Bank Account', () => {
       });
 
       it('should return an error message if withdrawal amount exceeds balance', () => {
-        const spy = jest.spyOn(console, 'log');
         account.deposit(500);
         account.withdraw(1000);
         expect(account.balance).toBe(500);
-        expect(spy).toHaveBeenCalledWith('Insufficient funds.');
+        expect(spy).toHaveBeenCalledWith('Error: Insufficient funds.');
+      });
+
+      it('should not allow deposit with more than 2 decimal places', () => {
+        account.deposit(1100);
+        account.withdraw(1000.123);
+        expect(account.balance).toBe(1100);
+        expect(transactionArray.length).toBe(1);
+        expect(spy).toHaveBeenCalledWith(
+          'Error: Only 2 decimal places allowed.',
+        );
       });
     });
   });
