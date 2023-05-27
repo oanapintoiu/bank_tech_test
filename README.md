@@ -10,8 +10,7 @@
 [6. Tickets](#6-tickets)  
 [7. Test Covarage](#7-test-covarage)  
 [8. Screenshots: program tested in terminal](#8-screenshots-program-tested-in-terminal)  
-[9. Instructions](#9-instructions)  
-[10. Self assessment citeria](#10-self-assement)  
+[9. Instructions](#9-instructions)   
 
 ## 1. Specifications
 
@@ -76,15 +75,15 @@ date || credit || debit || balance
 
 ## 4. Diagram
 
-1. Diagram Version 1
+**1. Diagram Version 1**
 <img src="diagrams/diagram_v1.png"
 alt="Bank Test Diagram">
 
-2. Diagram Version 2
+**2. Diagram Version 2**
 <img src="diagrams/diagram_v2.png"
 alt="Bank Test Diagram v2">
 
-3. Diagram Version 3
+**3. Diagram Version 3**
 <img src="diagrams/diagram_v3.png"
 alt="Bank Test Diagram v3">
 
@@ -141,7 +140,6 @@ For perspectives on the differences between SRP and SOC, you can view this artic
   * withdrawal: expect balance to be 1000; transaction length 2, position in array 1, credit value 0, debit value 1000 and balance value 1000 from an initial balance of 2000 in balance array position 0;
   * withdrawal scenation 2: expect balance to be 1000; transaction length 3, position in array 1 for credit value 0, debit value 1000 and balance value 1000, position in array 2 for debit value 500 and position in array 0 for initial debit balance of 2000.
 
-* tests need to be refactored??
 
 2. **Transaction Controller Tests**:
 
@@ -181,7 +179,7 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 ## 6. Tickets
 
 1. Develop Folder Structure ==DONE==
-2. Install nvm, istanbul, setup jest ==DONEe==
+2. Install nvm, istanbul, setup jest ==DONE==
 3. Develop tests and then code for deposit feature ==DONE==
 4. Develop tests and then code for withdrawal feature ==DONE==
 5. Work on developing tests for adding a transaction. Create an array 'this.transactions' in the transaction.js controller. ==DONE==
@@ -201,25 +199,26 @@ For perspectives on the differences between SRP and SOC, you can view this artic
 19. Check formatting, specifications and any refactoring opportunities. ==DONE==
 20. Check README is complete and submit project. ==TO DO==
 21. Added error for depositing or withrdrawing an amount exceeding 2 decimals. ==DONE==
+22. Fix all ESlint errors and update code accordingly. ==DONE==
 
 ## 7. Test Covarage
 
-1. BankAccount controller test coverage:
+**1. BankAccount controller test coverage:**
 
 <img src="screenshots/bankAccount.js_coverage.png"
 alt="Bank Account Controller Test Coverage">
 
-2. Transaction controller test coverage: 
+**2. Transaction controller test coverage:** 
 
 <img src="screenshots/transaction.js_coverage.png"
 alt="Transaction Controller Test Coverage">
 
-3. Statement controller test coverage, all tests included at this point:
+**3. Statement controller test coverage, all tests included at this point:**
 
 <img src="screenshots/test_coverage.png"
 alt="All Tests Coverage">
 
-4. ESlint - all errors fixed and cleared: 
+**4. ESlint - all errors fixed and cleared:** 
 
 Note: in two situations `this` was used to call upon a method ([see here for more details](https://www.w3schools.com/js/js_function_call.asp)) and ESlint gave an error. One was fixed by turning the method into const declaration and the other by using the keyword `static`and turned the (regurlar) method into a static method ([read more here on static methods](https://javascript.info/static-properties-methods)).
 
@@ -228,52 +227,52 @@ alt="All ESLint Errors Cleared">
 
 ## 8. Screenshots: program tested in terminal
 
-1. Initial test checking deposit, withdrawal and balance features:
+**1. Initial test checking deposit, withdrawal and balance features:**
 
 <img src="screenshots/deposit_credit_balalance_test.png"
 alt="Deposit, Withdrawal and Balance Node Test">
 
-2. Print Statement test: credit, debit, balance - no formatting: 
+**2. Print Statement test: credit, debit, balance - no formatting:**
 
 <img src="screenshots/node_print_test.png"
 alt="Deposit, Withdrawal and Balance Node Test">
 
-3. Print Statement test continued: credit, debit, balance - no formatting:
+**3. Print Statement test continued: credit, debit, balance - no formatting:**
 
 <img src="screenshots/node_print_test2.png"
 alt="Deposit, Withdrawal and Balance Node Test 2">
 
-4. Date terminal test: 
+**4. Date terminal test:** 
 
 <img src="screenshots/date_terminal_test.png"
 alt="Date Terminal Test">
 
-5. Date formatted into DD/MM/YYYY:
+**5. Date formatted into DD/MM/YYYY:**
 
 <img src="screenshots/date_DD:MM:YY_format.png"
 alt="Date Terminal Test">
 
-6. Statement showing in reverse chronological order:
+**6. Statement showing in reverse chronological order:**
 
 <img src="screenshots/stament_reverse_order.png"
 alt="Statement in Reverse Chronological Order">
 
-7. Added pipe symbols in between strings and values:
+**7. Added pipe symbols in between strings and values:**
 
 <img src="screenshots/added_pipe_symbols.png"
 alt="Date Terminal Test">
 
-8. Printed statement following specifications: 
+**8. Printed statement following specifications:** 
 
 <img src="screenshots/bank_statement.png"
 alt="Bank Statement">
 
-9. Printed statement with the correct space formatting and according to specifications: 
+**9. Printed statement with the correct space formatting and according to specifications:** 
 
 <img src="screenshots/correct_formatting.png"
 alt="Bank Statement according to Specifications">
 
-10. Finished product:
+**10. Finished product:**
 
 <img src="screenshots/full_node_test.png"
 alt="Finished product tested in REPL/NODE">
@@ -420,53 +419,6 @@ $ account.withdraw(1000.123)
 # To get an 'Insufficient funds error' ensure that the balance is lower than the withdrawal amount, i.e. balance can be 1000 and withdrawal amaount 2000.
 ```
 
-## 10. Self-assement
-
-### Questions and Answers
-
-Normal Cnstraints:
-
-```
-1. Did you start a feature test?
-Yes
-
-2. Do the tests pass?
-Yes
-
-3. Is the test coverage high? (>95%)
-Yes, 100%
-
-4. Do the unit tests mock the dependencies of the object they are testing?
-Yes
-```
-
-Additional Constraints:
-
-```
-5. Where possible, do you always test for the behaviour rather than the state? 
-Yes
-
-6. Do the test descriptions read clearly?
-Yes
-
-7. Do you make appropriate use of the testing framework's method to keep your test code clean? 
-Yes
-```
-
-Strict Constraints:
-
-```
-8. Does your project commit history clearly show evidence of a thorough TDD process?
-Yes
-
-9. Have you mocked the dependecy Time?
-Yes
-
-10. Personal perception of the quality of testing (scale of 1-4):
-3
-```
-
-Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: <https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit>
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
